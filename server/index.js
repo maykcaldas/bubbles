@@ -19,6 +19,7 @@ app.use(cors({
   origin: [
     'http://localhost:3000',
     'https://bubbles-buaa0fpr6-maykcaldas-projects.vercel.app',
+    'https://bubbles-rust.vercel.app',
     'https://bubbles-client.vercel.app'
   ],
   methods: ['GET', 'POST', 'OPTIONS'],
