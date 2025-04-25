@@ -9,9 +9,6 @@ const port = process.env.PORT || 8080; // Cloud Run uses 8080 by default
 
 // Log environment variables (without sensitive data)
 console.log('Environment variables loaded:');
-console.log('DB_HOST:', process.env.DB_HOST);
-console.log('DB_PORT:', process.env.DB_PORT);
-console.log('DB_NAME:', process.env.DB_NAME);
 console.log('PORT:', process.env.PORT);
 
 // CORS configuration
@@ -31,13 +28,9 @@ app.use(express.json());
 
 // Database connection
 const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
+  connectionString: process.env.DATABASE_URL,
   ssl: {
-    rejectUnauthorized: false // Required for Cloud SQL
+    rejectUnauthorized: false
   }
 });
 
